@@ -1,28 +1,29 @@
-import React,{ useState} from 'react';
+import React, { useState } from 'react'
 
 export const LoadingContext = React.createContext();
 
-const LoadingProvider = (props) => {
-    const [loading, setLoading] = useState(true);
-    const [tabChange, setTabChange] = useState(true);
+export function LoadingProvider(props) {
+    
+    const [loading ,setLoading] = useState(true) 
+    const [tabChange, setTabChange] = useState(false)
 
     const setLoadingFunc = (bool) => {
         setLoading(bool);
     };
-    const setTabChangeFunc = (bool) => {
-        setTabChange(bool)
-    };
+    const setTabChangeFunc = (bool) => { 
+        setTabChange(bool); 
+    }; 
 
-    return(
+    return (
         <LoadingContext.Provider
-            value={{
+            value={{ 
                 tabChange: tabChange,
                 setTabChangeFunc: setTabChangeFunc,
                 loading: loading,
                 setLoadingFunc: setLoadingFunc
             }}
         >
+            {props.children}
         </LoadingContext.Provider>
     )
 }
-export default React.memo(LoadingProvider)

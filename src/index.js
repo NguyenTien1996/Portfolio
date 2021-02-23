@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDom from 'react-dom'
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-function Greeting(){
-  return <h4>This is Tutorial</h4>
-}
-
-ReactDom.render(<Greeting/>,document.getElementById('root'));
+ReactDom.render(<App/>,document.getElementById('root'));
+reportWebVitals();

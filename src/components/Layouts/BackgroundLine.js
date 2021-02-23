@@ -1,4 +1,4 @@
-import '../../Styles/LoadingPage.css'
+import '../../access/LoadingPage.css'
 export default function BackgroundLine() {
  
     return (

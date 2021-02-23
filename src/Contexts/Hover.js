@@ -1,24 +1,23 @@
-import React,{ useState} from 'react';
+import React, { useState } from 'react'
 
 export const HoverContext = React.createContext();
 
-const HoverProvider = (props) => {
-    const [hover, setHover] = useState(false);
+export function HoverProvider(props) {
+    
+    const [hover ,setHover] = useState(false) 
 
     const setHoverFunc = (bool) => {
-        setHover(bool)
-    }
+        setHover(bool);
+    }; 
 
-    return(
-        <HoverProvider.Provider
+    return (
+        <HoverContext.Provider
             value={{
-                hover: hover,
+                hover: hover, 
                 setHoverFunc: setHoverFunc
             }}
         >
-        {props.childern}
-        </HoverProvider.Provider>
+            {props.children}
+        </HoverContext.Provider>
     )
 }
-
-export default React.memo(HoverContext)
